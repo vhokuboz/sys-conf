@@ -23,9 +23,12 @@ sudo apt install -y git htop curl wget bash-completion zram-tools
 # 4. BUSCA INTELIGENTE NO HIST[ORICO (.inputrc)
 echo "--- Configurando .inputrc ---"
 cat <<EOT >> ~/.inputrc
-"\e[A": history-search-backward
-"\e[B": history-search-forward
-set show-all-if-ambigous on
+
+$include /etc/inputrc
+
+"\\e[A": history-search-backward
+"\\e[B": history-search-forward
+set show-all-if-ambiguous on
 set completion-ignore-case on
 EOT
 # Aplica sem precisar deslogar
@@ -51,7 +54,7 @@ cat <<EOT >> ~/.bashrc
 alias ll='ls -lah'
 alias update='sudo apt update && sudo apt upgrade -y'
 alias mem='free -h'
-alias temp='/urc/bin/vcgencmd measure_temp'
+alias temp='/usr/bin/vcgencmd measure_temp'
 alias dash='htop'
 EOT
 
