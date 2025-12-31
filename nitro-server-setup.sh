@@ -42,14 +42,16 @@ echo "--- Criando atalhos de monitoramento ---"
 cat <<EOT >> ~/.bashrc
 
 # ALIASES SERVIDOR NOTEBOOK
-alias ll='ls -lah'
 alias update='sudo apt update && sudo apt upgrade -y'
 alias mem='free -h'
 alias dash='htop'
 alias stats='powertop --show-stats'      # Ver consumo de energia
 alias temp='sensors'                     # Ver temperatura da CPU/GPU
 alias bat='upower -i /org/freedesktop/UPower/devices/battery_BAT0' # Ver saúde da bateria
+alias bat1='upower -i $(upower -e | grep BAT) | grep -E "state|to\ full\percentage"'
 EOT
+
+source ~/.bashrc
 
 # 7. OTIMIZAÇÃO DE ENERGIA (Opcional, mas recomendado)
 # TLP ajuda a economizar energia em notebooks Linux
