@@ -43,11 +43,6 @@ WIN_CREDENTIAL_MANAGER="/mnt/c/Program Files/Git/mingw64/bin/git-credential-mana
 if [ -f "$HOME/.gitconfig" ]; then
     warn "Arquivo .gitconfig já existe. Pulando configuração básica."
 else
-    read -p "Digite seu Nome para o Git: " git_name
-    read -p "Digite seu Email para o Git: " git_email
-
-    git config --global user.name "$git_name"
-    git config --global user.email "$git_email"
     git config --global core.autocrlf input
     git config --global core.editor nano
     git config --global init.defaultBranch main
